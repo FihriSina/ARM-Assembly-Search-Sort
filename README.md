@@ -45,7 +45,7 @@ Bu proje, **ARM Assembly dili** kullanılarak geliştirilmiş iki temel işlemi 
 
 Amaç, düşük seviyeli programlama ile diziler üzerinde doğrudan işlem yapmayı ve bu işlemler sırasında yığın (stack) kullanarak bellek yönetimini taklit etmektir.
 
-## 🧠 Özellikler
+##  Özellikler
 
 * **Arama Fonksiyonu (`bul`)**
   Lineer arama algoritması kullanarak, girilen değerin dizide olup olmadığını kontrol eder.
