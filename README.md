@@ -1,6 +1,6 @@
 # 🔧 ARM Assembly Project: Search & Sort Operations
 
-##  Overview (English)
+##  Overview 
 
 This project implements two fundamental operations—**searching** and **sorting**—using the ARM Assembly language. It is designed and tested in the **KEIL uVision** simulator as part of the *Computer Organization and Architecture* course.
 
