@@ -29,7 +29,7 @@ The main goal is to demonstrate how low-level programming can be used to manipul
 * **Stack-Based Memory Management**
   All temporary arrays and intermediate data are handled using stack operations, mimicking memory allocation at the hardware level.
 
-### 🧪 Example Array
+###  Example Array
 
 Input:
 `[2, 0, 2, 3, 3, 0, 1, 0, 0, 4, 2, 1]`
