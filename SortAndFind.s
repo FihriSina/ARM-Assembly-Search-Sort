@@ -1,4 +1,4 @@
-		AREA Proje,CODE,READONLY
+		AREA SortAndFind,CODE,READONLY
 			ENTRY
 			EXPORT main
 			
@@ -12,17 +12,17 @@ main PROC
     CMP R2, #2					; R2 ? 2 = Sirala	
     BEQ sirala_test			
 
-    B .							; Sonsuz Döngü (Program Burada Biter) 
+    B .							; Sonsuz DÃ¶ngÃ¼ (Program Burada Biter) 
 
 bul_test
     MOV R0, #7         			; Aranacak deger: 7
     BL bul						; bul fonksiyonuna dallanma
-    B .							; Döndükten sonra programi durdurma
+    B .							; DÃ¶ndÃ¼kten sonra programi durdurma
 
 sirala_test
     MOV R0, R1					; R0 = dizi adresi
     BL sirala					; sirala fonksiyonuna dallan
-    B .							; Döndükten sonra programi durdur
+    B .							; DÃ¶ndÃ¼kten sonra programi durdur
 
 
 
@@ -40,18 +40,18 @@ dongu_bul
     CMP R0, R2					; dizi[i] == aranacak ?
     BEQ bulundu					; Evetse bulundu
     ADD R5, R5, #1				; index arttirma (i++)
-    B dongu_bul					; döngüye devam
+    B dongu_bul					; dÃ¶ngÃ¼ye devam
 
 bulundu
     MOV R0, #1					; R0 = 1 (bulundu)
     ADD R1, R4, R5, LSL #2		; R1 = bulunan elemanin adresi
-    POP {R2-R5, LR}				; Kaydedilenleri geri yükle (Stack i Serbest Birakma) 
-    BX LR						; Geri dön
+    POP {R2-R5, LR}				; Kaydedilenleri geri yÃ¼kle (Stack i Serbest Birakma) 
+    BX LR						; Geri dÃ¶n
 
 bulunamadi
     MOV R0, #0					; R0 = 0 (bulunamadi)
-    POP {R2-R5, LR}				; Kaydedilenleri geri yükle
-    BX LR						; Geri dön
+    POP {R2-R5, LR}				; Kaydedilenleri geri yÃ¼kle
+    BX LR						; Geri dÃ¶n
 
 
 
@@ -62,7 +62,7 @@ sirala
     MOV R2, #0					; R2 = 0 (bos)
     MOV R3, #1              	; R3 = i = 1 (ilk veri)
 
-	; max degeri bulmak için döngü
+	; max degeri bulmak iÃ§in dÃ¶ngÃ¼
     MOV R4, #0              	; R4 ? max = 0
 max
     CMP R3, R1                  ; i > uzunluk?
@@ -73,12 +73,12 @@ max
     MOV R4, R5                  ; max = dizi[i]
 buyuk_degilse_atla
     ADD R3, R3, #1              ; i++
-    B max                       ; döngüye devam et
+    B max                       ; dÃ¶ngÃ¼ye devam et
 	
-    ; Count dizisi için yer ayirma
+    ; Count dizisi iÃ§in yer ayirma
 count_yer_ayir
-    ADD R4, R4, #1              ; max + 1 (count dizisi boyutu için)
-    LSL R4, R4, #2              ; byte cinsinden çarp (max+1)*4
+    ADD R4, R4, #1              ; max + 1 (count dizisi boyutu iÃ§in)
+    LSL R4, R4, #2              ; byte cinsinden Ã§arp (max+1)*4
     SUB SP, SP, R4              ; Stack'te yer ayir
     MOV R6, SP                  ; R6 ? count dizisi adresi
 
@@ -91,7 +91,7 @@ count_sifirla
     MOV R5, #0                  ; Sifirla
     STR R5, [R6, R7]            ; count[i] = 0
     ADD R7, R7, #4              ; i++
-    B count_sifirla                    ; döngüye devam
+    B count_sifirla                    ; dÃ¶ngÃ¼ye devam
 
 count_sayma
     MOV R8, #1                  ; i = 1
@@ -100,7 +100,7 @@ count_sayma
 ; count[i]++
 count_dongu
     CMP R8, R9                  ; i > uzunluk?
-    BGT siraliD_yer_ayir                ; Evetse geç
+    BGT siraliD_yer_ayir                ; Evetse geÃ§
     LDR R10, [R0, R8, LSL #2]   ; dizi[i]
     LSL R11, R10, #2            ; index * 4
     LDR R12, [R6, R11]          ; count[dizi[i]]
@@ -109,11 +109,11 @@ count_dongu
     ADD R8, R8, #1              ; i++
     B count_dongu 
 	
-; Sirali dizi için yer ayirma
+; Sirali dizi iÃ§in yer ayirma
 siraliD_yer_ayir
     LDR R5, [R0]                ; R5 ? dizi uzunlugu
     LSL R5, R5, #2              ; byte olarak uzunluk
-    SUB SP, SP, R5              ; stack'te yer aç
+    SUB SP, SP, R5              ; stack'te yer aÃ§
     MOV R7, SP                  ; R7 ? sirali dizi adresi
 
     ; count dizisinden sirali diziyi olustur
@@ -127,7 +127,7 @@ sirala_dongu
     CMP R11, #0
     BEQ sayma_dongu_devam               ; sifirsa atla
 
-    ; count[i] adet kadar i’yi sirali diziye koy
+    ; count[i] adet kadar iâ€™yi sirali diziye koy
 kopyala_dongu
     CMP R11, #0
     BEQ sayma_dongu_devam
@@ -136,17 +136,17 @@ kopyala_dongu
     SUB R11, R11, #1        ; count--
     B kopyala_dongu
 	
-; Sayma döngüsüne devam noktasi
+; Sayma dÃ¶ngÃ¼sÃ¼ne devam noktasi
 sayma_dongu_devam
     ADD R8, R8, #1          ; i++
     CMP R8, R4, LSR #2      ; i < max+1 ?
-    BLT sirala_dongu        ; döngüye devam
+    BLT sirala_dongu        ; dÃ¶ngÃ¼ye devam
 
     ; sirali diziyi orijinal dizinin yerine yaz
     MOV R8, #1
     LDR R9, [R0]            ; uzunluk
 	
-; Sirali diziyi orijinalin üzerine yazma
+; Sirali diziyi orijinalin Ã¼zerine yazma
 kopyala2
     CMP R8, R9
     BGT bitir
@@ -160,8 +160,8 @@ bitir
     ADD SP, SP, R4          ; count dizisi alanini geri al
     ADD SP, SP, R5          ; sirali dizi alanini geri al
 
-    POP {R4-R12, LR}        ; kayitlari geri yükle
-    BX LR                   ; geri dön
+    POP {R4-R12, LR}        ; kayitlari geri yÃ¼kle
+    BX LR                   ; geri dÃ¶n
         ENDP
 
 ;-----------------------------------------------------------
