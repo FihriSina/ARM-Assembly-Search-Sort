@@ -38,14 +38,15 @@ Sorted Output:
 `[0, 0, 0, 0, 1, 1, 2, 2, 2, 3, 3, 4]`
 
 ---
+# 🔧 ARM Assembly Projesi: Arama ve Sıralama Fonksiyonları
 
-#  Genel Bakış 
+##  Genel Bakış 
 
 Bu proje, **ARM Assembly dili** kullanılarak geliştirilmiş iki temel işlemi içermektedir: **arama** ve **sıralama**. Proje, *Bilgisayar Organizasyonu ve Mimarisi* dersi kapsamında hazırlanmış ve **KEIL uVision** simülatöründe test edilmiştir.
 
 Amaç, düşük seviyeli programlama ile diziler üzerinde doğrudan işlem yapmayı ve bu işlemler sırasında yığın (stack) kullanarak bellek yönetimini taklit etmektir.
 
-##  Özellikler
+###  Özellikler
 
 * **Arama Fonksiyonu (`bul`)**
   Lineer arama algoritması kullanarak, girilen değerin dizide olup olmadığını kontrol eder.
