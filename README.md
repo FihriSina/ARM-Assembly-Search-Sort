@@ -74,10 +74,9 @@ Amaç, düşük seviyeli programlama ile diziler üzerinde doğrudan işlem yapm
 Giriş Dizisi:
 `[2, 0, 2, 3, 3, 0, 1, 0, 0, 4, 2, 1]`
 
-![image](https://github.com/user-attachments/assets/2dabc43b-f622-4f6c-baab-d6a454b6e528)
-
-
 Sıralı Çıktı:
 `[0, 0, 0, 0, 1, 1, 2, 2, 2, 3, 3, 4]`
 
 ---
+
+![image](https://github.com/user-attachments/assets/2dabc43b-f622-4f6c-baab-d6a454b6e528)
